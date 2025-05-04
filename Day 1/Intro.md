@@ -32,6 +32,8 @@
 
 # Part 2 - Python Concepts
 
+## Example 1
+
 > Today we’re going to explore how to use Python collections—like **lists, sets, dictionaries, and tuples**—to build a real-world mini project: an **Employee Management and Attendance Tracker**.
 >
 > In any real company or system, employees are identified by **unique employee IDs**—like E001, E002, and so on. Using IDs makes it easy to track employees even if some of them have the same name.
@@ -59,3 +61,7 @@
 > This is a great example of how Python collections help us build simple systems that feel close to real life.
 >
 > Thanks for following along—and keep practicing by solving more everyday problems with Python!
+> 
+## Example 2
+
+The scenario simulates a basic ATM machine where the user can repeatedly choose actions (check balance, deposit money, withdraw money, etc.) until they decide to exit.
