@@ -19,7 +19,7 @@ else:
     print("Student is adult")
 
 
-#======================================================
+#======================================================using list c
 cgpa = []
 cutoff = 0.0
 print("Enter cgpa of 10 students")
@@ -37,3 +37,19 @@ toppers  = [m for m in cgpa if m >=8.8]
 print("Qualified list of cgpa")
 print(qualified)
 print(toppers)
+
+#========================================================using While True to avoid neg values
+
+sum = 0
+n = 0
+print("Enter 5 positive numbers")
+for i in range(5):
+    while True:
+        n = int(input())
+        if n < 0:
+            print("Erorr!!! Neg value entered")
+            continue
+        sum=sum+n
+        break
+
+print(f"Sum of 5 nos is {sum}")
