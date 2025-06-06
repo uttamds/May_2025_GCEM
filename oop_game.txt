@@ -1,0 +1,61 @@
+import random
+
+# Base Character class
+class Character:
+    def __init__(self, name, health, attack_power):
+        self.name = name
+        self._health = health  # Encapsulation
+        self.attack_power = attack_power
+
+    def is_alive(self):
+        return self._health > 0
+
+    def take_damage(self, amount):
+        self._health -= amount
+        if self._health < 0:
+            self._health = 0
+
+    def get_health(self):
+        return self._health
+
+    def attack(self, other):
+        damage = random.randint(1, self.attack_power)
+        print(f"{self.name} attacks {other.name} for {damage} damage!")
+        other.take_damage(damage)
+
+# Player class (inherits from Character)
+class Player(Character):
+    def __init__(self, name):
+        super().__init__(name, health=100, attack_power=20)
+
+# Enemy class (inherits from Character)
+class Enemy(Character):
+    def __init__(self):
+        super().__init__("Goblin", health=80, attack_power=15)
+
+# Game class (composition: has Player and Enemy)
+class Game:
+    def __init__(self):
+        self.player = Player(input("Enter your name: "))
+        self.enemy = Enemy()
+
+    def play(self):
+        print("\n🏁 Battle Begins!\n")
+        while self.player.is_alive() and self.enemy.is_alive():
+            input("\nPress Enter to attack...")
+            self.player.attack(self.enemy)
+            if not self.enemy.is_alive():
+                print(f"\n🎉 {self.player.name} wins!")
+                break
+
+            self.enemy.attack(self.player)
+            if not self.player.is_alive():
+                print(f"\n💀 {self.player.name} was defeated...")
+                break
+
+            print(f"\n{self.player.name} Health: {self.player.get_health()}")
+            print(f"{self.enemy.name} Health: {self.enemy.get_health()}")
+
+# Run the game
+game = Game()
+game.play()
