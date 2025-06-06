@@ -38,3 +38,23 @@ class TravelCompany:
                     print(f"Ticket booked successfully for {passenger.name} on Bus {bus.bus_id} ({bus_type}) - {route}")
                     return
         print("Sorry, no available seats for the selected route and bus type.")
+
+company = TravelCompany()
+
+# Add buses
+company.add_bus(Bus(101, "AC", "City A to City B"))
+company.add_bus(Bus(102, "Non-AC", "City A to City B"))
+company.add_bus(Bus(103, "AC", "City B to City C"))
+company.add_bus(Bus(104, "Non-AC", "City B to City C"))
+company.add_bus(Bus(105, "AC", "City C to City D"))
+company.add_bus(Bus(106, "Non-AC", "City C to City D"))
+
+# Show available buses
+company.show_available_buses()
+
+# Create a passenger and book a ticket
+p1 = Passenger("Alice")
+company.book_ticket(p1, "City A to City B", "AC")
+
+# Show available buses again
+company.show_available_buses()
