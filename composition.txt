@@ -1,0 +1,34 @@
+# Ticket class (composed object)
+class Ticket:
+    def __init__(self, route, seat_no, price):
+        self.route = route
+        self.seat_no = seat_no
+        self.price = price
+
+    def ticket_details(self):
+        return f"Route: {self.route}, Seat No: {self.seat_no}, Price: ${self.price}"
+
+# Passenger class (has-a Ticket)
+class Passenger:
+    def __init__(self, name):
+        self.name = name
+        self.ticket = None  # Will hold a Ticket object
+
+    def book_ticket(self, route, seat_no, price):
+        self.ticket = Ticket(route, seat_no, price)
+        print(f"{self.name} has booked a ticket.")
+
+    def show_passenger_details(self):
+        print(f"Passenger Name: {self.name}")
+        if self.ticket:
+            print("Ticket Info:", self.ticket.ticket_details())
+        else:
+            print("No ticket booked.")
+
+# Example usage
+p1 = Passenger("Alice")
+p1.show_passenger_details()
+
+print("\nBooking a ticket...\n")
+p1.book_ticket("City A to City B", 12, 450)
+p1.show_passenger_details()
